@@ -116,16 +116,6 @@ export default async function ProductPage({
 
           <div className="flex items-center space-x-6 text-sm">
             <div className="flex items-center">
-              <Eye className="w-4 h-4 mr-1 text-gray-500" />
-              <span>{product.statistics.viewCount} views</span>
-            </div>
-            <div className="flex items-center">
-              <Clock className="w-4 h-4 mr-1 text-gray-500" />
-              <span>
-                ~{Math.round(product.statistics.timeOnPage)}s avg time
-              </span>
-            </div>
-            <div className="flex items-center">
               {product.favorite ? (
                 <Heart className="w-4 h-4 mr-1 text-red-500 fill-red-500" />
               ) : (
