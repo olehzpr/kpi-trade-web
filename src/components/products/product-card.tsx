@@ -1,4 +1,4 @@
-import { ProductWithDetails } from "@/types/product";
+import { ProductWithDetails } from "@/types/products/product";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, Eye } from "lucide-react";

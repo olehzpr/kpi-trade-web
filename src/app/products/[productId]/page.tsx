@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getProduct } from "@/app/services/api/products";
+import { getProduct } from "@/services/api/products/api";
 import { formatDistanceToNow } from "date-fns";
 import { Separator } from "@/components/ui/separator";
 import {
