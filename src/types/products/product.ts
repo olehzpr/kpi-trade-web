@@ -3,11 +3,9 @@ import {UserSchema} from '../user/user';
 import {CategorySchema} from '../categories/category';
 import {ProductImageSchema} from "@/types/products/product-image";
 import {ProductStatisticsSchema} from "@/types/products/product-statistics";
-import {SortingSchema} from "@/types/products/sorting";
-import {PagingSchema} from "@/types/products/paging";
 
 export const ProductSchema = z.object({
-  id: z.string(),
+  id: z.number(),
   name: z.string(),
   description: z.string(),
   price: z.number(),
@@ -20,7 +18,7 @@ export const ProductSchema = z.object({
 export const ProductWithDetailsSchema = ProductSchema.extend({
   createdAt: z.string(),
   updatedAt: z.string(),
-  statistics: ProductStatisticsSchema,
+  statistics: ProductStatisticsSchema.nullable(),
   favorite: z.boolean(),
 });
 
