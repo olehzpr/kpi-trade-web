@@ -125,8 +125,8 @@
   --radius: 0.625rem;
 
   /* Main colors */
-  --background: #F9F9FF;
-  --foreground: #000000;
+  --background: var(--main);
+  --foreground: var(--black);
 
   /* Card and popover */
   --card: #FFFFFF;
@@ -135,18 +135,18 @@
   --popover-foreground: #000000;
 
   /* Theme colors */
-  --primary: #1062A3;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F2F4F8;
-  --secondary-foreground: #000000;
+  --primary: var(--blue);
+  --primary-foreground: var(--white);
+  --secondary: var(--white);
+  --secondary-foreground: var(--neutral-900);
   --muted: #F2F4F8;
   --muted-foreground: #59667E;
   --accent: #F2F4F8;
   --accent-foreground: #000000;
 
   /* Status colors */
-  --destructive: #FF3B51;
-  --warning: #FF8D21;
+  --destructive: #F83B51;
+  --warning: #F4B001;
   --success: #2AC167;
 
   /* Border and input */
@@ -172,35 +172,36 @@
   --sidebar-ring: #BDBDBD;
 
   /* Basic colors */
+  --main: #F9F9FF;
   --black: #000000;
   --blue: #1062A3;
   --white: #FFFFFF;
-  --grey: #BDBDBD;
+  --grey: #BBBBBB;
 
   /* Brand colors */
-  --brand-00: #F3F8FF;
+  --brand-00: #F5FBFF;
   --brand-100: #F2F4F8;
-  --brand-200: #E4E8F2;
-  --brand-300: #C2D1E4;
+  --brand-200: #E4E9F2;
+  --brand-300: #C6D1E4;
   --brand-400: #A1B6D5;
-  --brand-500: #739BC5;
-  --brand-600: #00D6B3;
+  --brand-500: #7296C5;
+  --brand-600: #006DB3;
   --brand-700: #0061A0;
-  --brand-800: #0054BB;
+  --brand-800: #00548B;
   --brand-900: #004571;
 
   /* Neutral colors */
   --neutral-divider: #E5E7EF;
-  --neutral-900: #4041AD;
-  --neutral-800: #454564;
-  --neutral-700: #6A687A;
-  --neutral-600: #8D8191;
-  --neutral-500: #979BA8;
-  --neutral-400: #AF3D8E;
+  --neutral-900: #40414D;
+  --neutral-800: #545564;
+  --neutral-700: #6A6B7A;
+  --neutral-600: #808191;
+  --neutral-500: #9798A8;
+  --neutral-400: #AFB0BE;
   --neutral-300: #C7C8D5;
   --neutral-200: #E1E1EC;
-  --neutral-100: #EEEEEF;
-  --neutral-50: #F9F9FF;
+  --neutral-100: #EEEEF7;
+  --neutral-50: #F8F8FF;
 }
 
 @layer base {
