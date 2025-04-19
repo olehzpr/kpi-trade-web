@@ -68,7 +68,7 @@ export default function Home() {
                 case "price-desc":
                     return b.price - a.price;
                 case "popular":
-                    return b.statistics.viewCount - a.statistics.viewCount;
+                    return (b.statistics?.viewCount ?? 0) - (a.statistics?.viewCount ?? 0);
                 case "newest":
                 default:
                     return (
