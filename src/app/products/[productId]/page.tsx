@@ -3,14 +3,12 @@ import { getProduct } from "@/services/api/products/api";
 import { formatDistanceToNow } from "date-fns";
 import { Separator } from "@/components/ui/separator";
 import {
-  Eye,
-  Heart,
-  Clock,
   Calendar,
-  Phone,
+  ChevronLeft,
+  Heart,
   Instagram,
   MessageCircle,
-  ChevronLeft,
+  Phone,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -53,7 +51,7 @@ export default async function ProductPage({
   return (
     <div className="container mx-auto p-4">
       <Link
-        href="/products"
+        href="/"
         className="flex items-center mb-6 text-blue-600 hover:text-blue-800"
       >
         <ChevronLeft className="w-4 h-4 mr-1" />

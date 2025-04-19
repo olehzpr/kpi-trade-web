@@ -1,5 +1,5 @@
-import {UserSchema} from "@/types/user/user";
-import {z} from "zod";
+import { UserSchema } from "@/types/user/user";
+import { z } from "zod";
 
 export const UserResponseSchema = UserSchema;
 

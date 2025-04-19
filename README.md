@@ -1,4 +1,4 @@
-# KPI Trade 
+# KPI Trade
 
 ## Getting Started
 

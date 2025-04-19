@@ -1,10 +1,10 @@
 import AppFooter from "@/components/layout/footer";
 import AppHeader from "@/components/layout/header";
-import type {Metadata} from "next";
-import {Inter} from "next/font/google";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
-import {ReactNode} from "react";
+import { ReactNode } from "react";
 
 const inter = Inter({
   variable: "--font-inter",

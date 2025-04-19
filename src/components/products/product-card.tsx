@@ -69,7 +69,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <CardFooter className="flex justify-between items-center text-sm pt-2">
           <div className="flex items-center text-gray-500">
             <Eye className="h-4 w-4 mr-1" />
-            <span>{product.statistics?.viewCount ?? 'No views'}</span>
+            <span>{product.statistics?.viewCount ?? "No views"}</span>
           </div>
           <div className="font-bold text-blue-600">{formattedPrice}</div>
         </CardFooter>

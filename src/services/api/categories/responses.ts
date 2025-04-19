@@ -1,5 +1,5 @@
-import {z} from "zod";
-import {CategorySchema} from "@/types/categories/category";
+import { z } from "zod";
+import { CategorySchema } from "@/types/categories/category";
 
 export const CategoriesResponseSchema = z.array(CategorySchema);
 
