@@ -16,6 +16,7 @@ import { SiInstagram, SiTelegram } from "@icons-pack/react-simple-icons";
 import { ComponentType, HTMLProps, SVGProps } from "react";
 import { Button } from "@/components/ui/button";
 import { uk } from "date-fns/locale";
+import ContactSellerButton from "@/components/products/contact-seller-button";
 
 export default function Product({ productId }: { productId: number }) {
   const { data: product, isLoading } = useQuery({
@@ -76,7 +77,7 @@ function MainSection({ product }: { product: ProductWithDetails }) {
           )}
         </div>
       </div>
-      <Button>Звʼязатися з продавцем</Button>
+      <ContactSellerButton seller={product!.seller} />
     </section>
   );
 }
@@ -127,16 +128,14 @@ function SellerSection({ seller }: { seller: User }) {
             </ExternalLink>
           )}
 
-          {seller.telegramId && (
-            <ExternalLink
-              Icon={SiTelegram}
-              href={`https://t.me/${seller.telegramUsername}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @{seller.telegramUsername}
-            </ExternalLink>
-          )}
+          <ExternalLink
+            Icon={SiTelegram}
+            href={`https://t.me/${seller.telegramUsername}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @{seller.telegramUsername}
+          </ExternalLink>
         </div>
       </div>
     </section>
