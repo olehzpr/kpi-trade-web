@@ -28,7 +28,7 @@ export default function Product({ productId }: { productId: number }) {
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto px-4 mb-10 sm:mb-0">
       <GoBack href={"/"} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <ImageGallery images={product!.images} />

@@ -10,13 +10,13 @@ export default function GoBack({
   return (
     <Link
       className={cx(
-        "flex items-center mb-6 text-primary hover:text-primary/80",
+        "flex items-center mb-4 py-1 text-primary hover:text-primary/80",
         className,
       )}
       {...props}
     >
       <ChevronLeft className="w-4 h-4 mr-1" />
-      Back to all products
+      Назад
     </Link>
   );
 }
