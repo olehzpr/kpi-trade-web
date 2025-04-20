@@ -69,7 +69,7 @@ export default function RootLayout({
       >
         <Providers>
           <AppHeader />
-          <main className="min-h-[100dvh] flex flex-col items-center w-full">
+          <main className="min-h-[calc(100dvh-5rem)] flex flex-col items-center w-full">
             {children}
           </main>
           <AppFooter />
