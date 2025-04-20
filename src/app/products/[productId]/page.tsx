@@ -7,13 +7,14 @@ import { getQueryClient } from "@/lib/query-client";
 import type { Metadata } from "next";
 
 type PageParams = {
-  params: { productId: string };
+  params: Promise<{ productId: string }>;
 };
 
 export async function generateMetadata({
   params,
 }: PageParams): Promise<Metadata> {
-  const productId = Number(params.productId);
+  const awaitedParams = await params;
+  const productId = Number(awaitedParams.productId);
 
   try {
     const product = await getProduct(productId);
@@ -68,7 +69,8 @@ export async function generateMetadata({
 }
 
 export default async function ProductPage({ params }: PageParams) {
-  const productId = Number(params.productId);
+  const awaitedParams = await params;
+  const productId = Number(awaitedParams.productId);
 
   const queryClient = getQueryClient();
 
