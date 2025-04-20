@@ -29,7 +29,7 @@ export default function MobileFilters({
           Фільтри
         </Button>
       </SheetTrigger>
-      <SheetContent side="left">
+      <SheetContent side="left" className="overflow-y-scroll h-100%">
         <SheetHeader>
           <SheetTitle>Фільтри</SheetTitle>
           <SheetDescription>
