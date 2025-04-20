@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     locale: "uk_UA",
     type: "website",
   },
+  icons: {
+    apple: "/kpi-trade-logo.png",
+  },
   twitter: {
     card: "summary_large_image",
     title: "KPI Trade",
@@ -63,7 +66,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="uk">
       <body
         className={`${inter.variable} antialiased flex flex-col items-center gap-4`}
       >

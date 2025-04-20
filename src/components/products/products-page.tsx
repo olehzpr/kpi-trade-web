@@ -14,7 +14,9 @@ export default function ProductsPage() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-8">Пошук товарів</h1>
+      <h1 className="text-3xl font-bold mb-8">
+        Пошук оголошень та товарів студентів КПІ
+      </h1>
 
       <div className="flex flex-col lg:flex-row gap-4">
         <div className="hidden lg:block w-64">
