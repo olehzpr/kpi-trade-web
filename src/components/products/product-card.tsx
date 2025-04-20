@@ -1,7 +1,7 @@
 import { ProductWithDetails } from "@/types/products/product";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, Eye } from "lucide-react";
+import { Eye } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 import { formatDistanceToNow } from "date-fns";
 import { uk } from "date-fns/locale";
