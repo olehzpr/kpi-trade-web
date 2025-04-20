@@ -4,27 +4,27 @@ import Link from "next/link";
 import { Heart, Eye } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 import { formatDistanceToNow } from "date-fns";
+import { uk } from "date-fns/locale";
 
 type ProductCardProps = {
   product: ProductWithDetails;
 };
 
 export const ProductCard = ({ product }: ProductCardProps) => {
-  // Format the price (assuming price is in cents)
-  const formattedPrice = new Intl.NumberFormat("en-US", {
+  const formattedPrice = new Intl.NumberFormat("uk-UA", {
     style: "currency",
-    currency: "USD",
-  }).format(product.price / 100);
+    currencyDisplay: "narrowSymbol",
+    currency: "UAH",
+  }).format(product.price);
 
-  // Format the date
   const timeAgo = formatDistanceToNow(new Date(product.createdAt), {
     addSuffix: true,
+    locale: uk,
   });
 
   return (
     <Link href={`/products/${product.id}`} className="h-full">
-      <Card className="h-full overflow-hidden hover:shadow-md transition-shadow duration-200">
-        {/* Image container with fixed aspect ratio */}
+      <Card className="h-full flex flex-col gap-2 overflow-hidden hover:shadow-md transition-shadow duration-200 border-none py-0 rounded-md">
         <div className="relative aspect-square">
           {product.images && product.images.length > 0 ? (
             <Image
@@ -34,44 +34,34 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               className="object-cover"
             />
           ) : (
-            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-              <span className="text-gray-400">No image</span>
+            <div className="w-full h-full bg-neutral-100 flex items-center justify-center">
+              <span className="text-gray-500">Без зображення</span>
             </div>
           )}
 
-          {/* Favorite indicator */}
-          <div className="absolute top-2 right-2">
-            <Heart
-              className={`h-5 w-5 ${
-                product.favorite ? "text-red-500 fill-red-500" : "text-white"
-              }`}
-            />
-          </div>
-
-          {/* Category badge */}
           <div className="absolute bottom-2 left-2">
-            <span className="bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded-full">
+            <span className="bg-primary bg-opacity-60 text-white text-xs px-2 py-1 rounded-full">
               {product.category.name}
             </span>
           </div>
         </div>
 
-        <CardHeader className="pb-2">
-          <h3 className="font-medium line-clamp-2 h-12">{product.name}</h3>
+        <CardHeader className="pt-2">
+          <h3 className="font-medium line-clamp-2">{product.name}</h3>
         </CardHeader>
 
-        <CardContent className="pb-2">
+        <CardContent>
           <p className="text-gray-500 text-sm line-clamp-2">
             {product.description}
           </p>
         </CardContent>
 
-        <CardFooter className="flex justify-between items-center text-sm pt-2">
+        <CardFooter className="flex justify-between items-center text-sm mt-auto">
           <div className="flex items-center text-gray-500">
             <Eye className="h-4 w-4 mr-1" />
             <span>{product.statistics?.viewCount ?? "No views"}</span>
           </div>
-          <div className="font-bold text-blue-600">{formattedPrice}</div>
+          <div className="font-bold text-primary">{formattedPrice}</div>
         </CardFooter>
 
         <div className="px-4 pb-4 text-xs text-gray-400">{timeAgo}</div>

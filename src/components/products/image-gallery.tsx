@@ -15,8 +15,8 @@ export default function ImageGallery({ images }: { images: ProductImage[] }) {
             />
           </div>
         ) : (
-          <div className="aspect-square flex items-center justify-center bg-gray-200 rounded-lg">
-            <p className="text-gray-500">No image available</p>
+          <div className="aspect-square flex items-center justify-center bg-neutral-100 rounded-lg">
+            <p className="text-gray-500">Без зображення</p>
           </div>
         )}
 

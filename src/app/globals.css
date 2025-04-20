@@ -150,9 +150,9 @@
   --success: #2AC167;
 
   /* Border and input */
-  --border: #D9D9D9;
-  --input: #D9D9D9;
-  --ring: #BDBDBD;
+  --border: var(--neutral-500);
+  --input: var(--white);
+  --ring: var(--brand-400);
 
   /* Chart colors */
   --chart-1: #536DFE;
