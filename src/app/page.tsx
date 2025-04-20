@@ -36,11 +36,11 @@ export default function Home() {
 
   // Mock category data - replace with actual data as needed
   const categories = [
-    { id: 1, name: "Electronics" },
-    { id: 2, name: "Music & Entertainment" },
-    { id: 3, name: "Clothing" },
-    { id: 4, name: "Home & Garden" },
-    { id: 5, name: "Sports & Outdoors" },
+    { id: 1, name: "Електроніка" },
+    { id: 2, name: "Музика та розваги" },
+    { id: 3, name: "Одяг" },
+    { id: 4, name: "Товари для дому" },
+    { id: 5, name: "Спорт" },
   ];
 
   if (isLoading) {
