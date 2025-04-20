@@ -1,5 +1,3 @@
-// app/product/[productId]/page.tsx
-
 import { getProduct } from "@/services/api/products/api";
 import Product from "@/components/products/product-page";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
