@@ -3,9 +3,8 @@
 import { Calendar, Phone, UserIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { formatDistanceToNow } from "date-fns";
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { getProduct } from "@/services/api/products/api";
-import LoadingSpinner from "@/components/ui/loading-spinner";
 import ImageGallery from "@/components/products/image-gallery";
 import GoBack from "@/components/ui/go-back";
 import { User } from "@/types/user/user";
@@ -18,14 +17,10 @@ import { uk } from "date-fns/locale";
 import ContactSellerButton from "@/components/products/contact-seller-button";
 
 export default function Product({ productId }: { productId: number }) {
-  const { data: product, isLoading } = useQuery({
+  const { data: product } = useSuspenseQuery({
     queryKey: ["product", productId],
     queryFn: () => getProduct(productId),
   });
-
-  if (isLoading) {
-    return <LoadingSpinner description={"Page is loading"} />;
-  }
 
   return (
     <div className="container mx-auto px-4 mb-10 sm:mb-0">

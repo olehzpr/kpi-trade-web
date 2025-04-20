@@ -1,6 +1,5 @@
 "use client";
 import { useProducts } from "@/hooks/products/useProducts";
-import LoadingSpinner from "@/components/ui/loading-spinner";
 import { ProductWithDetails } from "@/types/products/product";
 import { ProductCard } from "@/components/products/product-card";
 import Filters from "@/components/products/filters";
@@ -10,12 +9,8 @@ import { useCategories } from "@/hooks/categories/useCategories";
 import Search from "./search";
 
 export default function ProductsPage() {
-  const { data: products, isLoading: productsLoading } = useProducts();
-  const { data: categories, isLoading: categoriesLoading } = useCategories();
-
-  if (productsLoading || categoriesLoading) {
-    return <LoadingSpinner description={"Loading..."} />;
-  }
+  const { data: products } = useProducts();
+  const { data: categories } = useCategories();
 
   return (
     <div className="container mx-auto p-4">

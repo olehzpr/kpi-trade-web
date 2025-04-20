@@ -5,7 +5,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import { ReactNode } from "react";
-import { AnimationLayout } from "@/components/layout/animation-layout";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -70,11 +69,9 @@ export default function RootLayout({
       >
         <Providers>
           <AppHeader />
-          <AnimationLayout>
-            <main className="min-h-[100dvh] flex flex-col items-center w-full">
-              {children}
-            </main>
-          </AnimationLayout>
+          <main className="min-h-[100dvh] flex flex-col items-center w-full">
+            {children}
+          </main>
           <AppFooter />
         </Providers>
       </body>
