@@ -28,6 +28,48 @@ import { Filter, Search, SlidersHorizontal, X } from "lucide-react";
 import { useState } from "react";
 import LoadingSpinner from "@/components/ui/loading-spinner";
 
+import type { Metadata } from "next";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: "Пошук товарів | KPI Trade",
+    description:
+      "Знайди потрібні товари серед студентів КПІ. Швидкий пошук, зручна навігація та інтеграція з Telegram.",
+    keywords: [
+      "пошук товарів",
+      "студентський маркет",
+      "торгівля КПІ",
+      "обмін речами",
+      "KPI Trade",
+      "студенти КПІ",
+    ],
+    openGraph: {
+      title: "Пошук товарів | KPI Trade",
+      description:
+        "Шукай та знаходь товари серед студентів КПІ. Проста торгівля з інтеграцією в Telegram.",
+      url: "https://kpi-trade.online",
+      siteName: "KPI Trade",
+      images: [
+        {
+          url: "/banner.png",
+          width: 1200,
+          height: 630,
+          alt: "Пошук товарів — KPI Trade",
+        },
+      ],
+      locale: "uk_UA",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Пошук товарів | KPI Trade",
+      description:
+        "KPI Trade — студентський сервіс для пошуку та обміну товарами.",
+      images: ["/banner.png"],
+    },
+  };
+};
+
 export default function Home() {
   const { data, isLoading, error } = useProducts();
   const [searchTerm, setSearchTerm] = useState("");

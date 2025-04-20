@@ -14,7 +14,6 @@ import { ProductWithDetails } from "@/types/products/product";
 import CategoryChip from "@/components/categories/CategoryChip";
 import { SiInstagram, SiTelegram } from "@icons-pack/react-simple-icons";
 import { ComponentType, HTMLProps, SVGProps } from "react";
-import { Button } from "@/components/ui/button";
 import { uk } from "date-fns/locale";
 import ContactSellerButton from "@/components/products/contact-seller-button";
 
