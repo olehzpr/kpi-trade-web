@@ -1,0 +1,12 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*?*
+
+# Host
+Host: https://kpi-trade.online
+
+# Sitemaps
+Sitemap: https://kpi-trade.online/sitemap.xml
