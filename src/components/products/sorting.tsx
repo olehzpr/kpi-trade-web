@@ -18,8 +18,8 @@ export default function Sorting() {
       <SelectContent className="border-none">
         <SelectItem value="popular">За популярністю</SelectItem>
         <SelectItem value="newest">За датою створення</SelectItem>
-        <SelectItem value="price-asc">Від дешевших до дорощих</SelectItem>
-        <SelectItem value="price-desc">Від дорощих до дешевших</SelectItem>
+        <SelectItem value="price-asc">Від дешевших до дорогих</SelectItem>
+        <SelectItem value="price-desc">Від дорогих до дешевших</SelectItem>
       </SelectContent>
     </Select>
   );

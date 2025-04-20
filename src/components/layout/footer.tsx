@@ -24,16 +24,16 @@ export default function AppFooter() {
           >
             <ChevronRight className="sm:hidden" /> Політика конфіденційності
           </Link>
-          <Link
+          <a
             href="/https://t.me/kpi_trade"
             rel="noopener noreferrer"
             target="_blank"
             className="text-blue-600 hover:underline flex items-center gap-1"
           >
             <ChevronRight className="sm:hidden" /> Телеграм
-          </Link>
+          </a>
           <a
-            href="https://t.me/olehzpr"
+            href="https://t.me/kpitrade_bot"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline flex items-center gap-1"

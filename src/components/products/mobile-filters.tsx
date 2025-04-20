@@ -22,7 +22,7 @@ export default function MobileFilters({
     <Sheet open={mobileFiltersOpen} onOpenChange={setMobileFiltersOpen}>
       <SheetTrigger asChild>
         <Button
-          variant="outline"
+          variant="ghost"
           className="flex items-center justify-center shadow-sm shadow-neutral-200 rounded-md"
         >
           <SlidersHorizontal className="mr-2 h-4 w-4" />
