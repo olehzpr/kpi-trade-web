@@ -30,7 +30,7 @@ export default function ImageGallery({ images }: { images: ProductImage[] }) {
                 key={image.id}
                 className={cx(
                   "aspect-square relative rounded overflow-hidden bg-gray-100 transition-all",
-                  index == selectedImage && "ring-2 ring-blue-600",
+                  index == selectedImage && "ring-2 ring-primary",
                 )}
                 onClick={() => setSelectedImage(index)}
               >
