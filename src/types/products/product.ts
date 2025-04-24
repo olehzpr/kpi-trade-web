@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { UserSchema } from "../user/user";
+import { UserSchema } from "../auth/user";
 import { CategorySchema } from "../categories/category";
 import { ProductImageSchema } from "@/types/products/product-image";
 import { ProductStatisticsSchema } from "@/types/products/product-statistics";

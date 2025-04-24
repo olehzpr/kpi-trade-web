@@ -19,7 +19,7 @@ import {
 } from "../ui/drawer";
 import useMediaQuery from "@/hooks/utils/useMediaQuery";
 import Link from "next/link";
-import { User } from "@/types/user/user";
+import { User } from "@/types/auth/user";
 import { Phone } from "lucide-react";
 import { SiInstagram, SiTelegram } from "@icons-pack/react-simple-icons";
 

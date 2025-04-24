@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getProduct } from "@/services/api/products/api";
 import ImageGallery from "@/components/products/image-gallery";
 import GoBack from "@/components/ui/go-back";
-import { User } from "@/types/user/user";
+import { User } from "@/types/auth/user";
 import { Category } from "@/types/categories/category";
 import { ProductWithDetails } from "@/types/products/product";
 import CategoryChip from "@/components/categories/CategoryChip";
