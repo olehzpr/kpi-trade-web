@@ -6,10 +6,21 @@ import { Separator } from "@/components/ui/separator";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { Category } from "@/types/categories/category";
+import { useProductFilters } from "@/store/useProductFilters";
+import { useState } from "react";
 
 export default function Filters({ categories }: { categories?: Category[] }) {
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
+
+  const applyFilters = () => {
+    useProductFilters.getState().setFilters({
+      minPrice: priceRange[0],
+      maxPrice: priceRange[1],
+    });
+  };
+  
   return (
-    <Card className="h-fit sticky top-4 border-none shadow-sm shadow-neutral-200 rounded-md">
+    <Card className="h-fit sticky top-20 border-none shadow-sm shadow-neutral-200 rounded-md">
       <CardHeader>
         <CardTitle className="flex items-center">
           <Filter className="mr-2 h-5 w-5" />
@@ -35,10 +46,17 @@ export default function Filters({ categories }: { categories?: Category[] }) {
 
         <div>
           <h3 className="font-medium mb-4">Ціна</h3>
-          <Slider defaultValue={[0, 1000]} min={0} max={1000} step={10} />
+          <Slider 
+            defaultValue={priceRange} 
+            value={priceRange}
+            onValueChange={value => setPriceRange(value as [number, number])}
+            min={0} 
+            max={1000} 
+            step={10} 
+          />
           <div className="flex justify-between mt-2 text-sm text-gray-500">
-            <span>$0</span>
-            <span>$1000</span>
+            <span>{priceRange[0]}</span>
+            <span>{priceRange[1]}</span>
           </div>
         </div>
 
@@ -62,7 +80,8 @@ export default function Filters({ categories }: { categories?: Category[] }) {
           </div>
         </div>
 
-        <Button className="w-full mt-4">Apply Filters</Button>
+        <Button className="w-full mt-4" onClick={applyFilters}
+        >Apply Filters</Button>
       </CardContent>
     </Card>
   );

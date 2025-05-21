@@ -3,7 +3,7 @@
 import { Calendar, Phone, UserIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { formatDistanceToNow } from "date-fns";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getProduct } from "@/services/api/products/api";
 import ImageGallery from "@/components/products/image-gallery";
 import GoBack from "@/components/ui/go-back";
@@ -17,7 +17,7 @@ import { uk } from "date-fns/locale";
 import ContactSellerButton from "@/components/products/contact-seller-button";
 
 export default function Product({ productId }: { productId: number }) {
-  const { data: product } = useSuspenseQuery({
+  const { data: product } = useQuery({
     queryKey: ["product", productId],
     queryFn: () => getProduct(productId),
   });

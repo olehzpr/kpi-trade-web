@@ -5,13 +5,26 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useProductFilters } from "@/store/useProductFilters";
 import { useState } from "react";
 
 export default function Sorting() {
   const [sortOption, setSortOption] = useState<string>("popular");
 
   return (
-    <Select value={sortOption} onValueChange={setSortOption}>
+    <Select value={sortOption} onValueChange={(
+      value: 'popular' | 'newest' | 'price-asc' | 'price-desc'
+    ) => {
+        setSortOption(value);        
+        const sortMap = {
+          "popular": "createdAt,asc",
+          "newest": "createdAt,desc",
+          "price-asc": "price,asc",
+          "price-desc": "price,desc",
+        };
+        useProductFilters.getState().setFilters({ sort: sortMap[value] });
+      }}
+    >
       <SelectTrigger className="shadow-sm shadow-neutral-200 rounded-md">
         <SelectValue placeholder="Sort by" />
       </SelectTrigger>

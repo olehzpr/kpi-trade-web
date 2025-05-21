@@ -1,9 +1,22 @@
 import { Input } from "@/components/ui/input";
+import { useProductFilters } from "@/store/useProductFilters";
+import { debounce } from "lodash";
 import { SearchIcon, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Search() {
   const [searchValue, setSearchValue] = useState("");
+
+  const setFilters = useProductFilters((state) => state.setFilters);
+
+  const debouncedSetFilters = debounce((value: string) => {
+    setFilters({ name: value });
+  }, 500);
+
+  useEffect(() => {
+    debouncedSetFilters(searchValue);
+    return () => debouncedSetFilters.cancel();
+  }, [searchValue]);
 
   return (
     <div className="relative flex-1 shadow-sm shadow-neutral-200 rounded-md">

@@ -1,9 +1,23 @@
 import { getProducts } from "@/services/api/products/api";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
-export const useProducts = () => {
-  return useSuspenseQuery({
-    queryKey: ["products"],
-    queryFn: () => getProducts(),
+interface UseProductsParams {
+  categoryId?: number;
+  sortBy?: string;
+  minPrice?: number;
+  maxPrice?: number;
+  name?: string;
+  sellerId?: number;
+  startDate?: string;
+  endDate?: string;
+  page?: number;
+  size?: number;
+  sort?: string;
+}
+
+export const useProducts = (params: UseProductsParams = {}) => {
+  return useQuery({
+    queryKey: ["products", params],
+    queryFn: () => getProducts(params),
   });
 };
