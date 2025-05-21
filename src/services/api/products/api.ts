@@ -7,8 +7,22 @@ import {
   SingleProductResponseSchema,
 } from "@/services/api/products/responses";
 
-export const getProducts = async (): Promise<ProductsResponse> => {
-  const res = await api.get("/products");
+interface GetProductsParams {
+  categoryId?: number;
+  sortBy?: string;
+  minPrice?: number;
+  maxPrice?: number;
+  name?: string;
+  sellerId?: number;
+  startDate?: string;
+  endDate?: string;
+  page?: number;
+  size?: number;
+  sort?: string;
+}
+
+export const getProducts = async (params: GetProductsParams = {}): Promise<ProductsResponse> => {
+  const res = await api.get("/products", { params });
   return ProductsResponseSchema.parse(res.data);
 };
 

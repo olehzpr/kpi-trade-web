@@ -7,10 +7,20 @@ import MobileFilters from "@/components/products/mobile-filters";
 import Sorting from "@/components/products/sorting";
 import { useCategories } from "@/hooks/categories/useCategories";
 import Search from "./search";
+import { useProductFilters } from "@/store/useProductFilters";
+import LoadingSpinner from "../ui/loading-spinner";
 
 export default function ProductsPage() {
-  const { data: products } = useProducts();
   const { data: categories } = useCategories();
+   const filters = useProductFilters();
+  const { data: products, isLoading, isFetching } = useProducts({
+    categoryId: filters.categoryId,
+    sortBy: filters.sortBy,
+    minPrice: filters.minPrice,
+    maxPrice: filters.maxPrice,
+    name: filters.name,
+    sort: filters.sort,
+  });
 
   return (
     <div className="container mx-auto p-4">
@@ -37,23 +47,28 @@ export default function ProductsPage() {
             </div>
             <Sorting />
           </div>
-
-          {products?.content?.length === 0 && (
-            <div className="bg-gray-50 rounded-lg p-8 text-center">
-              <p className="text-gray-600 mb-2">
-                Не знайдено жодних товарів за даним запитом
-              </p>
-              <p className="text-gray-500 text-sm">Спробуйте змінити фільтри</p>
+          {(isLoading || isFetching) ? (
+            <div className="flex items-center justify-center w-full">
+              <LoadingSpinner description="Оновлення результатів..." />
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {
+                products?.content?.length === 0 ? (
+                <div className="bg-gray-50 rounded-lg p-8 text-center">
+                  <p className="text-gray-600 mb-2">
+                    Не знайдено жодних товарів за даним запитом
+                  </p>
+                  <p className="text-gray-500 text-sm">Спробуйте змінити фільтри</p>
+                </div>
+              ) : products?.content?.map((product: ProductWithDetails) => (
+                  <div key={product.id} className="h-full">
+                    <ProductCard product={product} />
+                  </div>
+                ))
+              }
             </div>
           )}
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {products?.content?.map((product: ProductWithDetails) => (
-              <div key={product.id} className="h-full">
-                <ProductCard product={product} />
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </div>
