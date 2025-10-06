@@ -15,7 +15,7 @@ interface UseProductsParams {
   sort?: string;
 }
 
-export const useProducts = (params: UseProductsParams = {}) => {
+export const useProducts = (params?: UseProductsParams) => {
   return useQuery({
     queryKey: ["products", params],
     queryFn: () => getProducts(params),
