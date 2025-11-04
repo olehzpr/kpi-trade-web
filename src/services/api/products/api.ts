@@ -21,14 +21,31 @@ interface GetProductsParams {
   sort?: string;
 }
 
-export const getProducts = async (params: GetProductsParams = {}): Promise<ProductsResponse> => {
+interface CreateProductDto {
+  product: {
+    name: string;
+    description: string;
+    price: number;
+    categoryId: number;
+  };
+  images: string[];
+}
+
+export const getProducts = async (
+  params: GetProductsParams = {}
+): Promise<ProductsResponse> => {
   const res = await api.get("/products", { params });
   return ProductsResponseSchema.parse(res.data);
 };
 
 export const getProduct = async (
-  id: number,
+  id: number
 ): Promise<SingleProductResponse> => {
   const res = await api.get<ProductWithDetails>(`/products/${id}`);
   return SingleProductResponseSchema.parse(res.data);
+};
+
+export const createProduct = async (productDto: CreateProductDto) => {
+  const res = await api.post("/products", productDto);
+  return res.data;
 };

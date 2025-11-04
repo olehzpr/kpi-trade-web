@@ -7,6 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 import { createProductFormSchema } from "@/schemas/createProductFormSchema";
+import { createProduct } from "@/services/api/products/api";
+import { uploadImage } from "@/utils/uploadImage";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
@@ -30,10 +32,22 @@ export default function CreateProductPage() {
     },
   });
 
-  const onSubmit: SubmitHandler<FormSchemaType> = (data) => {
-    console.log("Form data submitted:", data);
+  const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
+    try {
+      const url = await uploadImage(data.image[0]);
 
-    // TODO: Add your API call or logic to create the product here
+      await createProduct({
+        product: {
+          name: data.title,
+          description: data.description,
+          price: data.price,
+          categoryId: 0,
+        },
+        images: [url],
+      });
+    } catch (error) {
+      console.error("Upload or product creation failed", error);
+    }
   };
 
   return (
