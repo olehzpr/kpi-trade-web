@@ -10,7 +10,7 @@ import { createProductFormSchema } from "@/schemas/createProductFormSchema";
 import { createProduct } from "@/services/api/products/api";
 import { uploadImage } from "@/utils/uploadImage";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { Control, SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
 type FormSchemaType = z.infer<typeof createProductFormSchema>;
@@ -60,7 +60,12 @@ export default function CreateProductPage() {
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="w-full">
-          <ImageUploadInput name="image" control={control} />
+          <ImageUploadInput
+            name="image"
+            control={
+              control as unknown as Control<Record<string, FileList | null>>
+            }
+          />
           {errors.image && (
             <p className="text-red-500 text-sm mt-1 px-2">
               {errors.image.message}
@@ -140,7 +145,7 @@ export default function CreateProductPage() {
 
           <div className="flex flex-col gap-2 w-full bg-brand-100 p-2 rounded-md">
             <Label className="text-sm">
-              Персональні контакти (необов'язково)
+              Персональні контакти ({"необов'язково"})
             </Label>
             <Input
               id="telegram"

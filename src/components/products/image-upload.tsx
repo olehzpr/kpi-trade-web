@@ -7,7 +7,7 @@ import { Control, useController } from "react-hook-form";
 
 type ImageUploadInputProps = {
   name: string;
-  control: Control<any>;
+  control: Control<Record<string, FileList | null>>;
 };
 
 export function ImageUploadInput({ name, control }: ImageUploadInputProps) {

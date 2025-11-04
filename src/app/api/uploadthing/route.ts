@@ -13,7 +13,6 @@ export async function POST(req: Request) {
       return new Response("No file provided", { status: 400 });
     }
 
-    // Upload to UploadThing
     const response = await utapi.uploadFiles(file);
 
     if (response.error) {
