@@ -11,4 +11,11 @@ export const createProductFormSchema = z.object({
   telegram: z.string().optional(),
   instagram: z.string().optional(),
   phone: z.string().optional(),
+  image: z
+    .custom<FileList>()
+    .refine((files) => files && files.length > 0, "Зображення є обов'язковим.")
+    .refine(
+      (files) => files?.[0]?.type.startsWith("image/"),
+      "Файл має бути зображенням."
+    ),
 });

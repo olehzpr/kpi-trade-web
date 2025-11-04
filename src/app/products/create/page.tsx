@@ -1,5 +1,6 @@
 "use client";
 
+import { ImageUploadInput } from "@/components/products/image-upload";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,6 +15,7 @@ type FormSchemaType = z.infer<typeof createProductFormSchema>;
 
 export default function CreateProductPage() {
   const {
+    control,
     register,
     handleSubmit,
     formState: { errors },
@@ -30,6 +32,7 @@ export default function CreateProductPage() {
 
   const onSubmit: SubmitHandler<FormSchemaType> = (data) => {
     console.log("Form data submitted:", data);
+
     // TODO: Add your API call or logic to create the product here
   };
 
@@ -42,13 +45,13 @@ export default function CreateProductPage() {
         Створити нове оголошення
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="flex flex-col gap-2 w-full bg-brand-100 p-2 rounded-md h-fit">
-          <Label className="text-sm" htmlFor="image-upload">
-            Зображення
-          </Label>
-          <div className="aspect-square flex items-center justify-center bg-neutral-100 rounded-lg border-dashed border-2">
-            <p className="text-gray-500">Завантажити зображення</p>
-          </div>
+        <div className="w-full">
+          <ImageUploadInput name="image" control={control} />
+          {errors.image && (
+            <p className="text-red-500 text-sm mt-1 px-2">
+              {errors.image.message}
+            </p>
+          )}
         </div>
 
         <div className="flex flex-col gap-4 sm:col-span-2">
