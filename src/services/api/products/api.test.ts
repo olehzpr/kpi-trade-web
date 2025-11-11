@@ -1,17 +1,9 @@
-import { getProduct, getProducts } from "@/services/api/products/api";
+// Integration tests moved to src/__tests__/integration/products.integration.test.tsx
+// Unit tests are in api.test.unit.ts
+// This file is kept for backward compatibility
 
-describe("Products API Integration", () => {
-  it("fetches and validates products without throwing errors", async () => {
-    await expect(getProducts()).resolves.not.toThrow();
-  });
-
-  it("fetches and validates single product without throwing errors", async () => {
-    const testProductId = 1;
-    await expect(getProduct(testProductId)).resolves.not.toThrow();
-  });
-
-  it("throws error when product does not exist", async () => {
-    const testProductId = -1;
-    await expect(getProduct(testProductId)).rejects.toThrow(Error);
+describe("Products API", () => {
+  it.skip("placeholder test for backward compatibility", () => {
+    // Tests moved to api.test.unit.ts and integration files
   });
 });
