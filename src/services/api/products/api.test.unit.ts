@@ -62,7 +62,7 @@ describe("Products API (Unit)", () => {
         sort: "price,desc",
       };
 
-      const result = await getProducts(params);
+      await getProducts(params);
 
       expect(mockedApi.get).toHaveBeenCalledWith("/products", { params });
     });
@@ -133,9 +133,7 @@ describe("Products API (Unit)", () => {
     });
 
     it("throws error when creation fails", async () => {
-      mockedApi.post.mockRejectedValueOnce(
-        new Error("Validation error")
-      );
+      mockedApi.post.mockRejectedValueOnce(new Error("Validation error"));
 
       await expect(createProduct(productDto)).rejects.toThrow(
         "Validation error"
@@ -143,9 +141,7 @@ describe("Products API (Unit)", () => {
     });
 
     it("handles server errors", async () => {
-      mockedApi.post.mockRejectedValueOnce(
-        new Error("Internal server error")
-      );
+      mockedApi.post.mockRejectedValueOnce(new Error("Internal server error"));
 
       await expect(createProduct(productDto)).rejects.toThrow(
         "Internal server error"
